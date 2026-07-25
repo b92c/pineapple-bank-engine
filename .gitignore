@@ -1,4 +1,5 @@
 .context/*
+.env
 AGENTS.md
 BACKLOG.md
 ROADMAP.md
