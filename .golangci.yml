@@ -1,0 +1,29 @@
+version: "2"
+
+run:
+  timeout: 5m
+
+linters:
+  default: standard
+  enable:
+    - misspell
+    - goconst
+    - revive
+    - gosec
+
+formatters:
+  enable:
+    - gofmt
+    - goimports
+issues:
+  exclude-dirs:
+    - proto
+
+  max-issues-per-linter: 0
+  max-same-issues: 0
+
+  exclude-rules:
+    - path: _test\.go
+      linters:
+        - goconst
+        - gosec

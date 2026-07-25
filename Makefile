@@ -15,7 +15,9 @@ test:
 	go test -race ./...
 test-coverage:
 lint:
-	golangci-lint run
+	golangci-lint run ./...
+lint-fix:
+	golangci-lint run --fix ./...
 infra-up:
 infra-down:
 docker-up:
