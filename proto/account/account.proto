@@ -1,1 +1,4 @@
 syntax= "proto3";
+package account;
+
+option go_package = "github.com/b92c/pineapple-bank-engine/proto/auth";
