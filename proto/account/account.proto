@@ -1,4 +1,35 @@
 syntax= "proto3";
 package account;
 
+import "google/protobuf/timestamp.proto";
+
+// Create Account contract
+message CreateAccountRequest {
+  string user_id = 1;
+}
+
+message CreateAccountResponse {
+  string account_id = 1;
+  int64 balance = 2;
+  google.protobuf.Timestamp created_at = 3;
+}
+
+// Get Balance contract
+message GetBalanceRequest {
+  string account_id = 1;
+}
+
+message GetBalanceResponse {
+  string account_id = 1;
+  int64 balance = 2;
+  int64 blocked_balance = 3;
+  google.protobuf.Timestamp updated_at = 4;
+}
+
+// Service Account provider
+service AccountService {
+  rpc CreateAccount(CreateAccountRequest) returns (CreateAccountResponse);
+  rpc GetBalance(GetBalanceRequest) returns (GetBalanceResponse);
+}
+
 option go_package = "github.com/b92c/pineapple-bank-engine/proto/auth";
